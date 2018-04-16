@@ -7,6 +7,6 @@ RUN apt-get update && apt-get install -y wget && rm -rf /var/lib/apt/lists/*
 RUN mkdir -p /opt/cprof && wget -q -O- https://storage.googleapis.com/cloud-profiler/java/latest/profiler_java_agent.tar.gz | tar xzv -C /opt/cprof
 
 ARG TOMCAT_VER
-RUN wget -q -O- https://archive.apache.org/dist/tomcat/tomcat-8/v${TOMCAT_VER}/bin/apache-tomcat-${TOMCAT_VER}.tar.gz | tar xzv -C /opt && mkdir -p /opt/tomcat && ln -s /opt/apache-tomcat-${TOMCAT_VER} /opt/tomcat
+RUN wget -q -O- https://archive.apache.org/dist/tomcat/tomcat-8/v${TOMCAT_VER}/bin/apache-tomcat-${TOMCAT_VER}.tar.gz | tar xzv -C /opt && ln -s /opt/apache-tomcat-${TOMCAT_VER} /opt/tomcat
 ADD tomcat-configs/logging.properties /opt/tomcat/conf/logging.properties
 ADD tomcat-configs/server.xml /opt/tomcat/conf/server.xml
